@@ -212,7 +212,7 @@ We write FSOP on stderr. We will get shell.
 This is my script
 
 ## script
-```python=
+```python
 from pwn import *
 from libs.NAUP_pwn_lib import *
 import time
