@@ -5,7 +5,7 @@
 
 // g++ chal.cpp -o chal
 
-#define SCHEDULE_MAX 10
+#define SCHEDULE_MAX 4
 #define SCHEDULE_SIZE schedule.capacity()
 
 std::vector<std::string> schedule;
