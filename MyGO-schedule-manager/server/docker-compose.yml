@@ -1,0 +1,10 @@
+version: '3'
+
+services:
+  pwn-mygo-schedule:
+    build: ./
+    volumes:
+      - ./share:/home/chal:ro
+      - ./xinetd:/etc/xinetd.d/chal:ro
+    ports:
+      - 51000:51000
