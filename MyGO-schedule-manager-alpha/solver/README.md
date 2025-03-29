@@ -18,4 +18,10 @@ We know std::string struct like this.
 
 So if we can change data's pointer to anywhere, we will get arbitary write or read.
 Use it to write got.
-I overwrite 
+
+Overwrite got pointer and let it jump to backdoor function.
+
+## script
+```python
+
+```
