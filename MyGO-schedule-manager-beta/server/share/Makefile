@@ -1,0 +1,2 @@
+all:
+	- g++ chal.cpp -o chal

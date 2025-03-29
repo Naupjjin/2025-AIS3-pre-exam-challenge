@@ -16,7 +16,7 @@ void init_proc(){
     std::cin.rdbuf()->pubsetbuf(nullptr, 0);
     std::cout.rdbuf()->pubsetbuf(nullptr, 0);
     
-    puts("+======================+");
+    puts("+======== beta ========+");
     puts("| Band schedule system |");
     puts("+======================+");
     
@@ -49,7 +49,7 @@ std::string get_string(){
 
 
 void add_scedule(){
-    if(schedule.size() > SCHEDULE_MAX){
+    if(SCHEDULE_SIZE > SCHEDULE_MAX){
         puts("[!] schedule is full. Don't let Tomorin so tired...");
         return;
     }
@@ -115,7 +115,19 @@ void login(){
     scanf("%15s", password);
     
     if (strcmp(username, "MyGO!!!!!") == 0 && strcmp(password, "TomorinIsCute") == 0){
-        puts("[!] Welcome MyGO!!!!!");
+        puts("\033[34m");
+        puts("=========================================");
+        puts("                  ____    _____      ");  
+        puts(" /'\\_/`\\         /\\  _`\\ /\\  __`\\    ");  
+        puts("/\\      \\  __  __\\ \\ \\L\\_\\ \\ \\/\\ \\   ");  
+        puts("\\ \\ \\__\\ \\/\\ \\/\\ \\\\ \\ \\L_L\\ \\ \\ \\ \\  ");  
+        puts(" \\ \\ \\_/\\ \\ \\ \\_\\ \\\\ \\ \\/, \\ \\ \\_\\ \\ ");  
+        puts("  \\ \\_\\\\ \\_\\/`____ \\\\ \\____/\\ \\_____\\");  
+        puts("   \\/_/ \\/_/`/___/> \\\\/___/  \\/_____/");  
+        puts("               /\\___/                 ");  
+        puts("               \\/__/                  ");  
+        puts("=========================================");
+        puts("\033[0m");
         puts("[!] This is a system that can manage your band schedule.");
         return;
     } else {
