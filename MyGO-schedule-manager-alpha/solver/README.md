@@ -2,6 +2,11 @@
 > Author: 堇姬Naup
 
 ## analyze
+`std::cin` does not limit the input size, and the input is placed into a buffer which have 0x16 size.
+So this part have a overflow, and it is on heap chunk.
+
+Let me look this chunk.
+
 
 We know std::string struct like this.
 | offset | description |
