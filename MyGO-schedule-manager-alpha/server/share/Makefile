@@ -1,2 +1,2 @@
 all:
-	- g++ chal.cpp -o chal
+	- g++ chal.cpp -o chal -no-pie -z lazy

@@ -1,4 +1,4 @@
-# MyGO!!!! Schedule Manager - Beta
+# MyGO Schedule Manager β
 > Author: 堇姬Naup
 
 ## analyze code
@@ -34,16 +34,16 @@ First we need to know `std::vector` and `std::string` structure.
 This is std::vector
 | offset | description |
 |--------|-------------|
-| 0x0 | pointer to the first element of the array |
+| 0x0 | array's first element pointer |
 | 0x8 | vector end pointer |
-| 0x10 | pointer to the capacity limit of the array  |
+| 0x10 | array's capacity limit pointer  |
 
 Anthor is std::string
 | offset | description |
 |--------|-------------|
-| 0x0    | pointer to the data (first element of the array) |
-| 0x8    | size of the vector (number of elements currently stored) |
-| 0x10   | capacity of the vector (total capacity, or pointer to the array end) |
+| 0x0    | data's pointer |
+| 0x8    | vector size |
+| 0x10   | vector capacity |
 | 0x18   | unused padding or alignment space |
 
 OK, now you need to know vector capacity.
