@@ -7,4 +7,4 @@
 | MyGO schedule manager α | Pwn |  | C++ overflow write std::string |
 | MyGO schedule manager β | Pwn |  | C++ capacity oob + std::vector + FSOP |
 |  | Web |  |  |
-|  | Misc |  |  |
+| ♖ PyWars ♖ | Misc |  | .pyz.py escape pyjail |
