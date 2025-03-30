@@ -1,4 +1,4 @@
-# PyWars 
+# ♖ PyWars ♖
 > Author: 堇姬Naup
 
 ## analyze
