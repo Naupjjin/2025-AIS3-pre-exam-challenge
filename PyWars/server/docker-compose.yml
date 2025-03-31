@@ -9,9 +9,6 @@ services:
     container_name: pywars
     ports:
       - "10000:10000"
-    volumes:
-      - ./src:/app
-      - ./src/uploads:/app/uploads
     restart: unless-stopped
     environment:
       - PYTHONUNBUFFERED=1

