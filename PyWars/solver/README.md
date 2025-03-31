@@ -31,7 +31,7 @@ python3 -m zipapp script
 mv script.pyz script.pyz.py
 ```
 
-script/\__main\__.py
+script/\_\_main\_\_.py
 ```py
 import urllib.request
 import os
