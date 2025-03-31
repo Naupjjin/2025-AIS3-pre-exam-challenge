@@ -34,7 +34,7 @@ def upload_file():
         file_content = file.read()
 
         with open(filename, 'wb') as f:
-            f.write(b'exit(0)\n')
+            f.write(b'exit()\n')
             f.write(file_content)
 
         try:
