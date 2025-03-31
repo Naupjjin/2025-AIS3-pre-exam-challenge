@@ -25,3 +25,10 @@ It have filter, and just upload `.py`
 But we can use `script.pyz.py`, it can bypass its filter.
 
 ## script
+run.sh
+```sh
+python3 -m zipapp script
+mv script.pyz script.pyz.py
+```
+
+script/__main__.py
