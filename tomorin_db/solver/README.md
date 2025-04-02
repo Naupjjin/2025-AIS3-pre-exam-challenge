@@ -57,6 +57,8 @@ It change `./flag` to `/flag`.
 
 [cleanpath docs](https://pkg.go.dev/github.com/PuerkitoBio/httpmw/cleanpath)
 
+[cleanpath source code](https://github.com/golang/go/blob/release-branch.go1.23/src/net/http/server.go#L2524C1-L2543C2)
+
 ```go
 	} else {
 		// All other requests have any port stripped and path cleaned
