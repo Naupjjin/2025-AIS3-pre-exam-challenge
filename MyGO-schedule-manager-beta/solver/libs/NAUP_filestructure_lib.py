@@ -1,5 +1,6 @@
 from pwn import *
 
+
 class FILESTRUCTURE:
     def __init__(self):
         self.FS = FileStructure(0)
