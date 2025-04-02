@@ -95,6 +95,15 @@ you will get flag!
 
 PS: If you use curl, curl still normalize the URL path. we can add `--path-as-is` prevent it do normalize.
 
+btw, this docs have onformation about `CONNECT`
+
+https://pkg.go.dev/net/http#ServeMux.Handler
+
+```
+The path and host are used unchanged for CONNECT requests.
+```
+
+
 ## script 
 ```sh
 curl --path-as-is -X CONNECT http://host/./flag
