@@ -5,6 +5,6 @@
 | challenge | Category | Difficult | Description |
 |-----------|----------|-----------|-------------|
 | MyGO schedule manager α | Pwn |  | C++ overflow write std::string |
-| MyGO schedule manager β | Pwn |  | C++ capacity oob + std::vector + FSOP |
-| Tomorin db 🐧 | Web |  | Golang's Problem |
+| MyGO schedule manager β | Pwn |  | C++ capacity + std::vector and string + FSOP |
+| Tomorin db 🐧 | Web |  | Golang's feature Problem |
 | ♖ PyWars ♖ | Misc |  | .pyz.py escape pyjail |
