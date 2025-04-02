@@ -6,5 +6,5 @@
 |-----------|----------|-----------|-------------|
 | MyGO schedule manager α | Pwn |  | C++ overflow write std::string |
 | MyGO schedule manager β | Pwn |  | C++ capacity oob + std::vector + FSOP |
-|  | Web |  |  |
+| Tomorin db 🐧 | Web |  | Golang's Problem |
 | ♖ PyWars ♖ | Misc |  | .pyz.py escape pyjail |
