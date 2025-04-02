@@ -90,6 +90,7 @@ So we try to do this :
 `curl --path-as-is -X CONNECT http://host/./flag`
 
 you will get flag!
+
 PS: If you use curl, curl still normalize the URL path. we can add `--path-as-is` prevent it do normalize.
 
 ## script 
