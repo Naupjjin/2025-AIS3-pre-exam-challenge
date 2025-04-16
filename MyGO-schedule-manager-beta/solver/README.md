@@ -146,9 +146,10 @@ Fourth element 0x0 change to `You want to write address` (This is pointer point 
 Alloc three chunk:
 When you alloc third chunk, vector capacity will be expanded to 4 and alloc new chunk store element struct.
 In advanced, you have been freed a fake chunk will be catch to use and fourth element have been put fake vector which point to `You want to write address`.
+0x8 and 0x10 set how many bytes you want to write.
 
 And it check use capacity, so we can access this fake pointer.
-So we will get arbitrary write.
+So we will get arbitrary write on libc.
 
 We write FSOP on stderr. We will get shell.
 This is my script
