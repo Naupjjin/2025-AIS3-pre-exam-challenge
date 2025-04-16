@@ -62,7 +62,7 @@ It will access out of vector's have element part.
 So first we alloc 0x500 size std::string, and alloc 0x10 size(When you free 0x500, let your unsorted bin not consolidate to top chunk.)
 And free 0x10 and free 0x500.
 And you show chunk 0x500, fd and bk's libc address will be show.
-We will leak libc
+We will leak libc (erase just destroy, not go to clear vector's element)
 ```c
 iterator erase(iterator position){
     if(position + 1 != end()){
