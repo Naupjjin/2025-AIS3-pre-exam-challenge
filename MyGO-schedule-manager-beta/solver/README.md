@@ -63,6 +63,16 @@ So first we alloc 0x500 size std::string, and alloc 0x10 size(When you free 0x50
 And free 0x10 and free 0x500.
 And you show chunk 0x500, fd and bk's libc address will be show.
 We will leak libc
+```c
+iterator erase(iterator position){
+    if(position + 1 != end()){
+        copy(position+1,finish,position);
+}
+    --finish;
+    destroy(finish);
+    return position;
+}
+```
 
 And we alloc one chunk, and input it like a fake vector (4 elements).
 Fourth element 0x0 change to `You want to write address` (This is pointer point to data), and free this chunk.
