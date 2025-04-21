@@ -4,7 +4,7 @@
 #include <cstring> 
 #include <cstdlib>
 
-// g++ chal.cpp -o chal -no-pie -Wl,-z,relro,-z,now
+// g++ chal.cpp -o chal -no-pie -z relro -z now -s
 
 struct schedule{
     char title[0x16];
