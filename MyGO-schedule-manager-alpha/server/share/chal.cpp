@@ -4,7 +4,7 @@
 #include <cstring> 
 #include <cstdlib>
 
-// g++ chal.cpp -o chal -no-pie -z relro -z now -s
+// g++ chal.cpp -o chal -no-pie -z relro -z now
 
 struct schedule{
     char title[0x16];
@@ -27,8 +27,6 @@ void init_proc(){
 }
 
 void debug_backdoor(){
-    puts("[!] Welcome, debug mode has opened...");
-    asm volatile("addq $8, %%rsp" ::: "rsp");
     system("/bin/sh");
 }
 
