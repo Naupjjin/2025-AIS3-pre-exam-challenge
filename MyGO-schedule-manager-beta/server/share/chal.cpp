@@ -2,6 +2,7 @@
 #include <vector>
 #include <string>
 #include <cstring> 
+#include <csignal>
 
 // g++ chal.cpp -o chal -s
 
@@ -10,11 +11,19 @@
 
 std::vector<std::string> schedule;
 
+void timeout_handler(int signum) {
+    std::cerr << "Time out !\n";
+    _exit(1);  
+}
+
 void init_proc(){
     setvbuf(stdin, NULL, _IONBF, 0);
     setvbuf(stdout, NULL, _IONBF, 0);
     std::cin.rdbuf()->pubsetbuf(nullptr, 0);
     std::cout.rdbuf()->pubsetbuf(nullptr, 0);
+
+    signal(SIGALRM, timeout_handler); 
+    alarm(60);
     
     puts("+======== beta ========+");
     puts("| Band schedule system |");
