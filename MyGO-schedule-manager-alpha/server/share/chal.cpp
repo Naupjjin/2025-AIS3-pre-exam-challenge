@@ -4,7 +4,7 @@
 #include <cstring> 
 #include <cstdlib>
 
-// g++ chal.cpp -o chal -no-pie -z lazy
+// g++ chal.cpp -o chal -no-pie -Wl,-z,relro,-z,now
 
 struct schedule{
     char title[0x16];
@@ -28,6 +28,7 @@ void init_proc(){
 
 void debug_backdoor(){
     puts("[!] Welcome, debug mode has opened...");
+    asm volatile("addq $8, %%rsp" ::: "rsp");
     system("/bin/sh");
 }
 
@@ -93,10 +94,10 @@ void edit_content(){
 
 void show(){
     if (SCHEDULE_STATUS == 1){
-        std::cout << "===== Schedule =====" << std::endl;
-        std::cout << "MyGO @ Title : " << sched -> title << std::endl;
-        std::cout << "MyGO @ Content : " << sched -> content << std::endl;
-        std::cout << "====================" << std::endl;
+        printf("===== Schedule =====\n");
+        printf("MyGO @ Title : %15s\n", sched -> title);
+        printf("MyGO @ Content : %s\n", sched -> content.c_str());
+        printf("====================\n");
     } else {
         puts("[x] Schdule Not Found ... ");
         return;
