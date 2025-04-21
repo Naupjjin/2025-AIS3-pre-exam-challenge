@@ -3,7 +3,7 @@
 #include <string>
 #include <cstring> 
 
-// g++ chal.cpp -o chal
+// g++ chal.cpp -o chal -s
 
 #define SCHEDULE_MAX 4
 #define SCHEDULE_SIZE schedule.capacity()
