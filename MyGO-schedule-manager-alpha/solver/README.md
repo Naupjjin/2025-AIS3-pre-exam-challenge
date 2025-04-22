@@ -17,9 +17,10 @@ We know std::string struct like this.
 | 0x18   | unused padding or alignment space |
 
 So if we can change data's pointer to anywhere, we will get arbitary write or read.
-Use it to write got.
+Use AAR leaklibc.
+And use aaw overwrite libc's got(ABS GOT) to backdoor function.
 
-Overwrite got pointer and let it jump to backdoor function.
+We will jump to win function, and get shell.
 
 ## script
 ```py
