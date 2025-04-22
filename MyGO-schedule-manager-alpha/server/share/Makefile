@@ -1,2 +1,2 @@
 all:
-	- g++ chal.cpp -o chal -no-pie -z relro -z now
+	- g++ chal.cpp -o chal -no-pie -z relro -z now -s
