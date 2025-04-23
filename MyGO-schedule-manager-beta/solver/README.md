@@ -1,15 +1,6 @@
 # MyGO Schedule Manager β
 > Author: 堇姬Naup
 
-## Use gdb
-patch origin binary `setz al` to `xor al, al` 
-```
-cmp     rax, 0FFFFFFFFFFFFFFFFh
-xor     al, al
-nop
-test    al, al
-```
-
 ## analyze code
 
 First, you need to login. Just input `MyGO!!!!!` in username and `TomorinIsCute` in password.
