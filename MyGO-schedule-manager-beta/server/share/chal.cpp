@@ -3,7 +3,6 @@
 #include <string>
 #include <cstring> 
 #include <csignal>
-#include <sys/ptrace.h>
 
 // g++ chal.cpp -o chal -s
 
@@ -15,13 +14,6 @@ std::vector<std::string> schedule;
 void timeout_handler(int signum) {
     std::cerr << "Time out !\n";
     _exit(1);  
-}
-
-__attribute__((constructor))
-void anti_debug() {
-    if (ptrace(PTRACE_TRACEME, 0, 1, 0) == -1) {
-        _exit(1);
-    }
 }
 
 
