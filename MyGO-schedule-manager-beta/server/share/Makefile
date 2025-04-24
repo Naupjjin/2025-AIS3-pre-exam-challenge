@@ -1,3 +1,3 @@
 all:
-	g++ chal.cpp -o chal -s -O3
+	g++ chal.cpp -o chal -s -O2 -flto
 
