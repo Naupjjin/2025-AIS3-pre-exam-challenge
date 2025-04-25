@@ -181,6 +181,7 @@ int main()
                 }
             }
         } else {
+            puts("[x] Too many operation !");
             exit(0);
         }
     }
