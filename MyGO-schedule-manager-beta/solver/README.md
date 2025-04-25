@@ -157,6 +157,9 @@ We write FSOP on stderr. And when this binary exit, We will get shell.
 
 If you don't understand, go to read my script.
 
+PS: More information go to read c++ source code
+https://github.com/Naupjjin/gcc/tree/master
+
 ## script
 ```python
 from pwn import *
