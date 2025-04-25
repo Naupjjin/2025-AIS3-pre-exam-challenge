@@ -95,6 +95,8 @@ void show_schedule(int index){
 Last function is show_schedule. It will show your schedule's string content.
 And check is vector capacity.
 
+PS: It has operation's times limit.
+
 ## Some Knowledge
 First we need to know `std::vector` and `std::string` structure.
 This is std::vector
