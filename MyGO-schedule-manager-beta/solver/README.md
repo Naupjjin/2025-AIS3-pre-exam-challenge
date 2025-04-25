@@ -146,9 +146,9 @@ Fourth element 0x0 change to `You want to write address` (This is pointer point 
 
 Alloc three chunk:
 When you allocate third chunk, vector capacity will be expanded to 4 and alloc new chunk store element struct.
-In advanced, you have been freed one chunk which have written fake vector will be catch to use and fourth element have been put fake vector which point to `You want to write address`.
-
-And it check use capacity, so we can access this fake pointer(If we don't have UAF, when you add new schedule, your fake pointer will be overwritten).
+In advanced, you have been freed one chunk which have written fake vector will be catch to use and fourth element have been put fake vector which point to `You want to write address`. 
+When you read C++ source code, new allocate chunk didn't clear its chunk memory.
+And it check index by capacity, so we can access this fake pointer(If we don't have UAF, when you add new schedule, your fake pointer will be overwritten).
 OK, So we will get arbitrary write on libc (std::string).
 
 We write FSOP on stderr. And when this binary exit, We will get shell.
