@@ -152,31 +152,36 @@ int main()
     
     int choice;
     int index;
+    int ops_cnt = 0 ;
     
     login();
     
     while(1){
         menu();
         choice = get_choice();
-        
-        if(choice == 1){
-            add_scedule();
-            
-        } else if (choice != 2 && choice != 3 && choice != 4) {
-            printf("[!] Thanks ~ ");
-            break;
-        } else {
-            index = get_index();
-            if (choice == 2){
-                edit_schedule(index);
+        ops_cnt++;
+        if (ops_cnt < 12) {
+            if(choice == 1){
+                add_scedule();
                 
-            } else if (choice == 3){
-                delete_schedule(index);
+            } else if (choice != 2 && choice != 3 && choice != 4) {
+                printf("[!] Thanks ~ ");
+                break;
+            } else {
+                index = get_index();
+                if (choice == 2){
+                    edit_schedule(index);
+                    
+                } else if (choice == 3){
+                    delete_schedule(index);
+                    
+                } else if (choice == 4){
+                    show_schedule(index);
                 
-            } else if (choice == 4){
-                show_schedule(index);
-            
+                }
             }
+        } else {
+            exit(0);
         }
     }
     return 0;
