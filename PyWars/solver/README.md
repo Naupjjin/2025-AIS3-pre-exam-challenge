@@ -22,7 +22,7 @@ So we write code at `script/__main__.py`, and pack it to pyz.
 
 OK, let me review code.
 It have filter, and just upload `.py`
-But we can use `script.pyz.py`, it can bypass its filter.
+But we can use `script.pyz.py`, it can bypass its filter. And if your upload's file format is `.pyz`, it will be executed no matter how its file extension
 
 ## script
 run.sh
