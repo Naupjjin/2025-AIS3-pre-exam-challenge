@@ -28,7 +28,7 @@ def upload_file():
     if file.filename == '':
         return redirect(request.url)
     if file and allowed_file(file.filename):
-        ext = file.filename.split('.', 1)[1].lower()
+        ext = file.filename
         random_hash = generate_random_hash()
         filename = os.path.join(app.config['UPLOAD_FOLDER'], f'main_{random_hash}.{ext}')
         file_content = file.read()
