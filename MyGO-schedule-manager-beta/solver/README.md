@@ -12,85 +12,17 @@ And then you will look four function about manipulate schedule.
 3 -> delete
 4 -> show
 
-```c
-void menu(){
-    puts("+======================+");
-    puts("| (1) add schedule     |");
-    puts("| (2) edit schedule    |");
-    puts("| (3) delete schedule  |");
-    puts("| (4) Show schedule    |");
-    puts("+======================+");
-    printf("< MyGO @ ScheduleManager $ > ");
-}
-```
-
-Trace this code.
-
-```c
-void add_scedule(){
-    if(SCHEDULE_SIZE > SCHEDULE_MAX){
-        puts("[!] schedule is full. Don't let Tomorin so tired...");
-        return;
-    }
-    schedule.emplace_back(get_string());
-    
-    puts("[+] add success!");
-    return;
-}
-```
-
 `add_schedule` need to input a string which you want to emplace_back to schedule (std::vector<std::string>).
 It'll check scedule not bigger than 4.
-
-```c
-void edit_schedule(int index){
-    
-    if(index > SCHEDULE_SIZE || index < 0){
-        puts("[x] schedule is not exist");
-        return;
-    }
-    
-    std::cin.ignore();
-    printf("Edit item > ");
-    std::getline(std::cin, schedule[index]);
-    
-    puts("[+] Edit success!");
-    return;
-}
-```
 
 `edit_schedule` it need to two input. `index` and `string` 
 It will edit schedule[index] to your input string.
 And it will check your input not bigger than vector capacity(It is so strange, but let me later to descript it. It is this challenge core) 
 
-```c
-void delete_schedule(int index){
-    if(index > SCHEDULE_SIZE || index < 0){
-        puts("[x] schedule is not exist");
-        return;
-    }
-    
-    schedule.erase(schedule.begin() + index);
-    puts("[-] delete success!");
-    return;
-}
-```
-
 `delete_schedule` is look like previous function.
 User need to input index, it will erase vector.begin()+index.
 This part check is the same, it check vector capacity.
 
-```c
-void show_schedule(int index){
-    if(index > SCHEDULE_SIZE || index < 0){
-        puts("[x] schedule is not exist");
-        return;
-    }
-    
-    std::cout << "Index [" << index << "] is " << schedule[index] << std::endl;
-    return;
-}
-```
 
 Last function is show_schedule. It will show your schedule's string content.
 And check is vector capacity.
