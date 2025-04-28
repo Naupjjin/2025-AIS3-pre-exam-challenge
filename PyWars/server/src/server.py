@@ -19,6 +19,12 @@ def generate_random_hash():
 def clean_file_content(content: bytes) -> bytes:
     return content.translate(bytes.maketrans(b"()}{", b"    "))  
 
+def check_token(content: bytes):
+    if b"TomorinIsCuteAndILovePython" in content:
+        return 0
+    else:
+        return 1
+
 @app.route('/')
 def index():
     return render_template('index.html')
@@ -35,6 +41,8 @@ def upload_file():
         random_hash = generate_random_hash()
         filename = os.path.join(app.config['UPLOAD_FOLDER'], f'main_{random_hash}.{ext}')
         file_content = file.read()
+        if check_token(file_content):
+            return f"Token not found!"
         clean_content = clean_file_content(file_content)
 
         with open(filename, 'wb') as f:
