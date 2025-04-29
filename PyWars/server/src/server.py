@@ -17,7 +17,7 @@ def generate_random_hash():
     return hashlib.sha256(str(random.getrandbits(256)).encode()).hexdigest()
     
 def clean_file_content(content: bytes) -> bytes:
-    return content.translate(bytes.maketrans(b"()}{", b"    "))  
+    return content.translate(bytes.maketrans(b"()}{|?!^", b"        "))  
 
 def check_token(content: bytes):
     if b"TomorinIsCuteAndILovePython" in content:
