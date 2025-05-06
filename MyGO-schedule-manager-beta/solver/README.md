@@ -87,13 +87,15 @@ When you read C++ source code, new allocate chunk didn't clear its chunk memory.
 And it check index by capacity, so we can access this fake pointer(If we don't have UAF, when you add new schedule, your fake pointer will be overwritten).
 OK, So we will get arbitrary write on libc (std::string).
 
-We use house of cat (FSOP) and overwrite stderr. And when this binary exit, We will get shell.
-PS: patch libc let you can success exploit on glibc 24.04
+We use house of cat (FSOP) and overwrite stderr. 
+[House of cat](https://bbs.kanxue.com/thread-273895.htm)
+
+And when this binary exit, We will get shell.
 
 If you don't understand, go to read my script.
 
-PS: More information go to read c++ source code
-https://github.com/Naupjjin/gcc/tree/master
+> PS: patch libc let you can success exploit on glibc 24.04
+> PS: More information go to read c++ source code https://github.com/Naupjjin/gcc/tree/master
 
 ## script
 ```python
