@@ -9,3 +9,4 @@ Try to test it.
 Beta version have been updated its security.
 If you find bug, you will look flag ~
 
+PS: Patch libc let you more easily to exploit.
