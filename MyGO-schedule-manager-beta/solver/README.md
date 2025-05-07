@@ -94,7 +94,9 @@ And when this binary exit, We will get shell.
 
 If you don't understand, go to read my script.
 
-> PS: patch libc let you can success exploit on glibc 24.04
+> PS: patch libc let you can success exploit on glibc 24.04. Use bindiff can more easily compare where I patch. (Just one part similarity is 0.99)
+
+
 > PS: More information go to read c++ source code https://github.com/Naupjjin/gcc/tree/master
 
 ## script
