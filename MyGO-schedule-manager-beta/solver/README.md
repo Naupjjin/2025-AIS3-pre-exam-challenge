@@ -96,6 +96,11 @@ If you don't understand, go to read my script.
 
 > PS: patch libc let you can success exploit on glibc 24.04. Use bindiff can more easily compare where I patch. (Just one part similarity is 0.99)
 
+Just `_IO_wfile_seekoff` similarity is 0.99
+![similarity](similarity.png)
+
+Patch `jz` to `jnz`
+![patchdiff](patchdiff.png)
 
 > PS: More information go to read c++ source code https://github.com/Naupjjin/gcc/tree/master
 
