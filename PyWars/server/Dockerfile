@@ -11,7 +11,7 @@ COPY ./src /app
 
 RUN mkdir -p /app/uploads /app/flags
 
-RUN echo "AIS3{Success!!!!!_y0u_are_M6s73r_0f_python@z1p_1s_c00l...and_v3r1f9_6xt_h2v3_s0m3_pr0b1e8!}" > /app/flags/flag_$(cat /proc/sys/kernel/random/uuid).txt
+RUN echo "AIS3{Success!!!!!_y0u_are_M6s73r_0f_python@z1p_1s_c00l...and_dec0rat0r_1s_c00l!}" > /app/flags/flag_$(cat /proc/sys/kernel/random/uuid).txt
 
 RUN chmod -R 755 /app
 
