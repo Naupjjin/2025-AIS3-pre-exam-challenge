@@ -1,4 +1,4 @@
-# 2025 AIS3 pre-exam & My Firsy CTF - challenge
+# 2025 AIS3 pre-exam & My First CTF - challenge
 > Author: 堇姬Naup
 
 ## challenge
