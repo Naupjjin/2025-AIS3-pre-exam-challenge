@@ -2,6 +2,7 @@
 > Author: 堇姬Naup
 
 ## official writeup link
+Blog : https://naup.mygo.tw/2025/05/31/2025-AIS3-pre-exam-MFC-official-writeup/
 Hackmd : https://hackmd.io/@naup96321/SyiDQQwgxx
 
 ## challenge
